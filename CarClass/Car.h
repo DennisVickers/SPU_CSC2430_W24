@@ -39,9 +39,7 @@ public:
    void setYear(const int&);
 
    // Static Methods
-   static int getTotalCars() {
-      return totalCars;
-   }
+   static int getTotalCars();
 
 };
 

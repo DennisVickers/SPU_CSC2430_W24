@@ -9,18 +9,15 @@ Car::Car() {
    this->model = "Model T";
    this->year = 1917;
    totalCars++;
-//   cout << "Car " << this->brand << " " << this->model << " constructed." << endl;
 }
 // Constructor
-Car::Car(const string& _brand, const string& _model, const int& _year) : brand(_brand), model(_model), year(_year) {
+Car::Car(const string& brand, const string& model, const int& year) : brand(brand), model(model), year(year) {
    totalCars++;
-//   cout << "Car " << this->brand << " " << this->model << " constructed." << endl;
 }
 
 // Destructor
 Car::~Car() {
    totalCars--;
-//   cout << "Car " << this->brand << " " << this->model << " destroyed." << endl;
 }
 
 // Getter for brand
@@ -55,4 +52,6 @@ void Car::setYear(const int& year) {
    }
 };
 
-
+int Car::getTotalCars() {
+   return totalCars;
+}
