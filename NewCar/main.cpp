@@ -19,6 +19,9 @@ int main() {
 
    cout << "\nTotal Cars: " << Car::getTotalCars() << endl;
 
+   delete myCar1;
+   delete myCar2;
+
    return 0;
 }
 
