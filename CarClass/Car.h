@@ -7,7 +7,7 @@ using namespace std;
 
 class Car {
 private:
-   string brand;
+   string make;
    string model;
    int year;
    // Static data
@@ -29,14 +29,16 @@ public:
    ~Car();    // Destructor
 
    // Getters
-   string getBrand() const;
+   string getMake() const;
    string getModel() const;
    int getYear() const;
 
    // Setters
-   void setBrand(const string&);
+   void setMake(const string&);
    void setModel(const string&);
    void setYear(const int&);
+
+   void showCar() const;
 
    // Static Methods
    static int getTotalCars();

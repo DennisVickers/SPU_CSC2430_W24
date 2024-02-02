@@ -5,13 +5,13 @@ int Car::totalCars = 0;
 
 // Default Constructor
 Car::Car() {
-   this->brand = "Ford";
+   this->make = "Ford";
    this->model = "Model T";
    this->year = 1917;
    totalCars++;
 }
 // Constructor
-Car::Car(const string& brand, const string& model, const int& year) : brand(brand), model(model), year(year) {
+Car::Car(const string& make, const string& model, const int& year) : make(make), model(model), year(year) {
    totalCars++;
 }
 
@@ -20,14 +20,14 @@ Car::~Car() {
    totalCars--;
 }
 
-// Getter for brand
-string Car::getBrand() const {
-   return this->brand;
+// Getter for make
+string Car::getMake() const {
+   return this->make;
 }
 
-// Setter for brand
-void Car::setBrand(const string& brand) {
-   this->brand = brand;
+// Setter for make
+void Car::setMake(const string& make) {
+   this->make = make;
 }
 
 // Getter for model
@@ -51,6 +51,13 @@ void Car::setYear(const int& year) {
       this->year = year;
    }
 };
+
+// Display car details and owners
+void Car::showCar() const {
+   cout << "Brand: " << this->make << endl;
+   cout << "Model: " << this->model << endl;
+   cout << "Year: " << this->year << endl;
+}
 
 int Car::getTotalCars() {
    return totalCars;
