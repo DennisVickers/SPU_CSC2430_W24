@@ -3,9 +3,9 @@
 
 void PrintDistances(const Point& start, const Point destinations[], size_t size) {
    double d1,d2,d3;
-   d1 = start.Distance(destinations[0]), 3;
-   d2 = start.Distance(destinations[1]), 3;
-   d3 = start.Distance(destinations[2]), 3;
+   d1 = start.Distance(destinations[0]);
+   d2 = start.Distance(destinations[1]);
+   d3 = start.Distance(destinations[2]);
    std::cout << d1 << " " << d2 << " " << d3 << std::endl;
 }
 
