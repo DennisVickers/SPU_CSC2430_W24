@@ -1,60 +1,59 @@
+/*
+ * Run-time Polymorphism
+ */
 #include <iostream>
 using namespace std;
 
 // Base class
 class Shape {
 public:
-    // Virtual function for calculating area
-    virtual double area() const {
-        return 0; // Default implementation
-    }
-
-    // Virtual destructor to ensure proper cleanup of derived class objects
-    virtual ~Shape() {}
+   virtual void draw() {
+      cout << "Drawing a shape.\n";
+   }
 };
 
-// Derived class: Circle
+// Derived class
 class Circle : public Shape {
-private:
-    double radius;
-
 public:
-    // Constructor
-    Circle(double r) : radius(r) {}
-
-    // Override the area function specifically for Circle
-    double area() const override {
-        return 3.14159 * radius * radius;
-    }
+   void draw() override {
+      cout << "Drawing a circle.\n";
+   }
 };
 
-// Derived class: Rectangle
+// Another derived class
 class Rectangle : public Shape {
-private:
-    double width, height;
-
 public:
-    // Constructor
-    Rectangle(double w, double h) : width(w), height(h) {}
-
-    // Override the area function specifically for Rectangle
-    double area() const override {
-        return width * height;
-    }
+   void draw() override {
+     cout << "Drawing a rectangle.\n";
+   }
 };
-
-// Function to demonstrate polymorphism using Shape pointers
-void printArea(const Shape& shape) {
-    cout << "Area: " << shape.area() << endl;
-}
 
 int main() {
-    Circle circle(5);      // Circle with radius 5
-    Rectangle rectangle(4, 5);  // Rectangle with width 4 and height 5
+   Shape* shape;
+   Circle circle;
+   Rectangle rect;
 
-    // Demonstrate polymorphism
-    printArea(circle);    // Calls Circle::area()
-    printArea(rectangle); // Calls Rectangle::area()
+   // Storing the address of Circle
+   shape = &circle;
+    
+   // Call Circle's draw function
+   shape->draw();
 
-    return 0;
+   // Storing the address of Rectangle
+   shape = &rect;
+    
+   // Call Rectangle's draw function
+   shape->draw();
+
+   return 0;
 }
+
+/*
+ * What is happening?
+ * 1) The Shape pointer shape is used to refer to objects of both 
+ *    Circle and Rectangle classes.
+ * 2) When shape->area() is called, the actual function that gets invoked 
+ *    is determined by the type of object shape is pointing to at runtime.
+ * 3) If shape points to a Circle object, Circle's draw method is invoked. 
+ *    If it points to a Rectangle object, Rectangle's draw method is invoked.
+ */
